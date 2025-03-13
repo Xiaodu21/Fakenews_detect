@@ -1,0 +1,19 @@
+# coze_agent.yml
+name: FakeNewsDetector
+description: 多模态伪造新闻检测智能体
+models:
+  - hammer_model:
+      api_endpoint: https://your-api-server/detect
+  - deepseek_r1:
+      api_key: YOUR_DEEPSEEK_KEY
+plugins:
+  - google_factcheck:
+      api_key: GOOGLE_API_KEY
+  - weibo_trending:
+      api_key: WEIBO_API_KEY
+workflow:
+  - 接收用户输入（文本/图片）
+  - 调用HAMMER模型分析
+  - 使用DeepSeek R1进行语义验证
+  - 调取社交媒体趋势数据
+  - 生成综合报告
